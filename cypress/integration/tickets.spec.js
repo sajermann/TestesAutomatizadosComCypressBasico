@@ -20,8 +20,12 @@ describe("Tickets", () => {
     cy.get("#signature").type("Bruno S.")
   })
 
-  it.only("Select two tickets", ()=>{
+  it("Select two tickets", ()=>{
     cy.get("#ticket-quantity").select(2)
+  })
+
+  it.only("Select vip ticket type", ()=>{
+    cy.get("#vip").check()
   })
 
   it("Has 'Ticketbox' header's heading", ()=>{});
