@@ -32,11 +32,21 @@ describe("Tickets", () => {
     cy.get("#social-media").check()
   })
 
-  it.only("Select friend and publication, then unckeck friend", ()=>{
+  it("Select friend and publication, then unckeck friend", ()=>{
     cy.get("#friend").check()
     cy.get("#publication").check()
     cy.get("#friend").uncheck()
   })
 
-  it("Has 'Ticketbox' header's heading", ()=>{});
+  it("Has 'Ticketbox' header's heading", ()=>{
+    cy.get('header h1').should('contain', 'TICKETBOX')
+  });
+
+  it.only("Alert on invalid email", ()=>{
+    cy.get('#email').as('email').type('ashudhas');
+    cy.get('#email.invalid').should('exist');
+
+    cy.get('@email').clear().type("teste@gmail.com")
+    cy.get('#email.invalid').should('not.exist');
+  });
 })
