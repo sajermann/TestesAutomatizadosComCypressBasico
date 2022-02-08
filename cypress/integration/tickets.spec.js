@@ -24,8 +24,18 @@ describe("Tickets", () => {
     cy.get("#ticket-quantity").select(2)
   })
 
-  it.only("Select vip ticket type", ()=>{
+  it("Select vip ticket type", ()=>{
     cy.get("#vip").check()
+  })
+
+  it("Select social media checkbox", ()=>{
+    cy.get("#social-media").check()
+  })
+
+  it.only("Select friend and publication, then unckeck friend", ()=>{
+    cy.get("#friend").check()
+    cy.get("#publication").check()
+    cy.get("#friend").uncheck()
   })
 
   it("Has 'Ticketbox' header's heading", ()=>{});
